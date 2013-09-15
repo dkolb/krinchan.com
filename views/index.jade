@@ -1,5 +1,26 @@
 extends layout
 
+mixin work-info(title, company, duration, location)
+  .row
+    .col-md-12
+      h3= title
+        | &nbsp;
+        small= company
+  .row
+    .col-md-4
+      table
+        tr
+          td.work-info-glyph-cell
+            span.glyphicon.glyphicon-calendar
+          td= duration
+    .col-md-4
+      table
+        tr
+          td.work-info-glyph-cell
+            span.glyphicon.glyphicon-map-marker
+          td= location
+
+
 block content
   .container
     h2
@@ -12,28 +33,13 @@ block content
       | and web service frameworks along with the ability to work within Agile
       | and more traditional software development lifecycles.  I'm seeking to
       | extend those skillsets and am open to exploring areas that are outside
-      | of traditional development, such as DevOps, 
+      | of traditional development, such as DevOps. 
     h2 
       span.glyphicon.glyphicon-briefcase
       | &nbsp; Work History
     .container.work-info-container
-      .row
-        .col-md-12
-          h3 Software Developer &nbsp;
-            small Manheim
-      .row
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-calendar
-              td November 2012 to Present
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-map-marker
-              td Atlanta, GA
+      +work-info('Software Developer', 'Manheim, Inc.',
+        'November 2012 to Present', 'Atlanta, GA')
       .row
         .col-md12
           p Develop, deploy, and support web services based on SpringWS or 
@@ -58,23 +64,8 @@ block content
             | also improving Common Services reliability and accuracy in 
             | testing network element changes. 
     .container.work-info-container
-      .row
-        .col-md-12
-          h3 IT Developer II &nbsp;
-            small The Home Depot
-      .row
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-calendar
-              td July 2012 to November 2012
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-map-marker
-              td Atlanta, GA
+      +work-info('IT Developer II', 'The Home Depot', 
+        'July 2012 to November 2012', 'Atlanta, GA')
       .row
         .col-md12
           p Developed a solution to convert requests from a 3rd party sales 
@@ -88,23 +79,8 @@ block content
           p Worked on a proof of concept project using Storm, Cassandra, and 
             | JRules.
     .container.work-info-container
-      .row
-        .col-md-12
-          h3 Service Delivery Engineer &nbsp;
-            small Cox Communications
-      .row
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-calendar
-              td May 2011 to July 2012
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-map-marker
-              td Atlanta, GA
+      +work-info('Service Delivery Engineer', 'Cox Communications',
+        'May 2011 to July 2012', 'Atlanta, GA')
       .row
         .col-md12
           p Created several monitoring and reporting applications using 
@@ -121,23 +97,8 @@ block content
             | however now work almost 75% on automation, monitoring, and 
             | reporting for Acision's voice mail product.
     .container.work-info-container
-      .row
-        .col-md-12
-          h3 Product Support Engineer &nbsp;
-            small Movius Corporation
-      .row
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-calendar
-              td July 2010 to May 2011
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-map-marker
-              td Atlanta, GA
+      +work-info('Product Support Engineer', 'Movius Corporation',
+        'July 2010 to May 2011', 'Atlanta, GA')
       .row
         .col-md12
           p Became designated Subject Matter Expert for the System Management 
@@ -166,23 +127,9 @@ block content
       span.glyphicon.glyphicon-book
       | &nbsp; Education
     .container.work-info-container
-      .row
-        .col-md-12
-          h3 Bachelor's of Science of Computer Science &nbsp;
-            small Columbus State University
-      .row
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-calendar
-              td December 2009
-        .col-md-4
-          table
-            tr
-              td.work-info-glyph-cell
-                span.glyphicon.glyphicon-map-marker
-              td Columbus, GA
+      +work-info("Bachelor's of Science of Computer Science",
+        'Columbus State University', 'Graduated December 2009',
+        'Columbus, GA')
       .row
         .col-md12
           p Graduated Magna Cum Laude
