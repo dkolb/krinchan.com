@@ -1,6 +1,6 @@
-h1.krinchan.com
+# krinchan.com Sourcecode
 
 Source code for my site.  Hosted on heroku.
 
-h2.Configuration
+## Configuration
 
