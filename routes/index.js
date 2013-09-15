@@ -16,7 +16,7 @@ exports.contact = function(reqeust, response) {
   response.render(
     'contactForm',
     {
-      title: 'Get in Touch'
+      title: 'Get in Touch',
       recaptcha_form: recaptcha.toHTML()
     }
   );
