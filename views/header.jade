@@ -30,3 +30,19 @@ nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
     h1!= title 
     p!= subtitle
   a.background-credit(href="http://www.sxc.hu/photo/1428539") Image by Ezzio
+
+.container
+  if (flash)
+    case (flash.type)
+      when "success"
+        .alert.alert-success!= flash.message
+          a.close(data-dismiss="alert",href="#",aria-hidden="true") &times;
+      when "warning"
+        .alert.alert-warning!= flash.message
+          a.close(data-dismiss="alert",href="#",aria-hidden="true") &times;
+      when "danger"
+        .alert.alert-danger!= flash.message
+          a.close(data-dismiss="alert",href="#",aria-hidden="true") &times;
+      when "info"
+        .alert.alert-info!= flash.message
+          a.close(data-dismiss="alert",href="#",aria-hidden="true") &times;

@@ -24,3 +24,7 @@ p {
 .work-info-container .work-info-glyph-cell {
   vertical-align: top;
 }
+
+#recaptcha_response_field {
+  width: 172px;
+}

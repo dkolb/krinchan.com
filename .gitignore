@@ -15,3 +15,5 @@ npm-debug.log
 npm_modules
 
 *.swp
+
+*.env

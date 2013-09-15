@@ -1,0 +1,20 @@
+!!! 5
+html
+  head
+    | <style type="text/css">
+    include ../public/css/email.min.css 
+    | </style>
+    style(type="text/css").
+      .container {
+        padding: 10px;
+      }
+  body
+    .container
+      h1 krinchan.com Message
+      p
+        b Message From:
+        | &nbsp;&nbsp;
+        a(href="mailto:" + replyTo)= replyTo
+      h2 Message Content
+      pre
+        = message

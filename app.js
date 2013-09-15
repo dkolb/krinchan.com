@@ -26,6 +26,7 @@ app.configure(function(){
 // Application URLs
 app.get('/', routes.index);
 app.get('/contact', routes.contact);
+app.post('/contact', routes.submitContact);
 
 //Used in dev and staging to test error handlers.
 if ('development' == app.get('env') || 'staging' == app.get('env')) {
