@@ -2,7 +2,7 @@
 
 Source code for my site.  Hosted on Heroku[1].
 
-[1] http://www.heroku.com
+[1]: http://www.heroku.com
 
 ## Configuration
 
