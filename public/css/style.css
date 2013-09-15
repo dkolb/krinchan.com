@@ -1,0 +1,26 @@
+.page-header {
+  position: relative;
+  padding: 30px 15px 40px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  background-color: rgb(0,0,0);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-image: url('../img/bridge_banner.jpg')
+}
+
+.page-header .background-credit {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 15px;
+  color: rgb(175,175,175);
+}
+
+p {
+  text-align: justify;
+}
+
+.work-info-container .work-info-glyph-cell {
+  vertical-align: top;
+}

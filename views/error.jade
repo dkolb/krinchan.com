@@ -1,0 +1,12 @@
+extends layout
+
+block title
+  title=locals.title 
+
+block content
+  .page-header
+    .container
+      h1=title
+    a.background-credit(href="http://www.xsc.hu/photo/1428539") Image by Ezzio
+  .container
+    p!=message

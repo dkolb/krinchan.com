@@ -1,0 +1,13 @@
+{
+  "name": "nodebootstraper",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.x",
+    "jade": "*",
+    "recaptcha": "*"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
+}

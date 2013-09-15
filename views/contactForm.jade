@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .container
+    form.form-horizontal(role="form",method="POST",action=".")
+      .form-group
+        label.col-md-2.control-label(for="returnAddress") Your Email
+        .col-md-10
+          input.form-control#returnAddress(placeholder="Your Email",type="email")
+      .form-group
+        label.col-md-2.control-label(for="message") Message
+        .col-md-10
+          textarea.form-control#message(rows=10,placeholder="Message")
+      .container
+        != recaptcha_form
+
