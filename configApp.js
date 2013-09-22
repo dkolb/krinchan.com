@@ -1,11 +1,11 @@
 var express = require('express')
-  , routes = require('../routes/index.js')
   , http = require('http')
   , path = require('path')
   , pg = require('pg')
+  , fs = require('fs')
   ;
 
-exports.setUp = function () {
+module.exports = function () {
   var app = express();
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -16,17 +16,16 @@ exports.setUp = function () {
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, '/public')));
 
-  // Application URLs
-  app.get('/', routes.index);
-  app.get('/contact', routes.contact);
-  app.post('/contact', routes.submitContact);
 
-  //Used in dev and staging to test error handlers.
-  if ('development' == app.get('env') || 'staging' == app.get('env')) {
-    app.get('/errorTest', routes.errorTest);
-  }
+  //Dynamic route application
+  fs.readdirSync('routes').forEach(function(file) {
+    console.log('Applying routes in ' + file);
+    if(!/\.swp$/.test(file)) {
+      require('./routes/' + file)(app);
+    }
+  });
 
 
   //Error Handling
@@ -37,25 +36,10 @@ exports.setUp = function () {
 
   if ('staging' == app.get('env') || 'production' == app.get('env')) {
     app.use(express.logger());
-    app.use(function (err, req, res, next) {
-      if (req.accepts('html')) {
-        res.status('500');
-        res.render(
-          'error',
-          {
-            title   : 'Server Error',
-            message : 'An error occured on the server.' +
-              '  The developer has been notified.'
-          }      );
-      } else if (req.accepts('json')) {
-        res.write(500, '{"error": "Server Error"}');
-      } else {
-        res.write(500, "An error occured in the server.");
-      }
-    });
+    app.use(require('./lib/vagueErrorHandler.js'));
   }
 
-  //Not found
+  //Not found and no Errors
   app.use(function(req, res, next) {
     res.status(404);
     res.render(
