@@ -6,7 +6,7 @@
     "jade": "0.35.x",
     "recaptcha": "1.2.x",
     "stylus": "0.37.x",
-    "nodemailer": "0.5.x"
+    "nodemailer": "0.7.x"
   },
   "engines": {
     "node": "0.12.x",
