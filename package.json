@@ -9,7 +9,7 @@
     "nodemailer": "0.5.x"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "0.12.x",
+    "npm": "2.5.x"
   }
 }
