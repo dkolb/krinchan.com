@@ -2,7 +2,7 @@ var Recaptcha = require('recaptcha').Recaptcha,
     emailer   = require('../lib/emailer.js');
 
 module.exports = function(app) {
-  app.get('/contect', function(reqeust, response) {
+  app.get('/contact', function(reqeust, response) {
     response.render(
       'contactForm',
       {

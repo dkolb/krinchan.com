@@ -6,8 +6,7 @@
     "jade": "0.35.x",
     "recaptcha": "1.2.x",
     "stylus": "0.37.x",
-    "nodemailer": "0.5.x",
-    "pg": "2.6.x"
+    "nodemailer": "0.5.x"
   },
   "engines": {
     "node": "0.8.x",

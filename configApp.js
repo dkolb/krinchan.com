@@ -1,7 +1,6 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
-  , pg = require('pg')
   , fs = require('fs')
   ;
 
@@ -53,7 +52,6 @@ module.exports = function () {
   });
 
   return {
-    app: app,
-    pg: pg
+    app: app
   };
 };
