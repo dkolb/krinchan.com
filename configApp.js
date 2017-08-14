@@ -2,21 +2,17 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , fs = require('fs')
+  , morgan = require('morgan')('tiny')
   ;
 
 module.exports = function () {
   var app = express();
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.favicon(__dirname + '/public/img/favicon.ico'));
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(require('stylus').middleware(__dirname + '/public'));
-  app.use(express.static(path.join(__dirname, '/public')));
-
+  app.set('view engine', 'pug');
+  app.use(require('serve-favicon')(__dirname + '/public/img/favicon.ico'));
+  app.use(morgan);
+  app.use(require('body-parser').json());
 
   //Dynamic route application
   fs.readdirSync('routes').forEach(function(file) {
@@ -27,10 +23,13 @@ module.exports = function () {
   });
 
 
+  app.use(require('stylus').middleware(__dirname + '/public'));
+  app.use(require('serve-static')(path.join(__dirname, '/public')));
+
   //Error Handling
   if ('development' == app.get('env')) {
-    app.use(express.logger());
-    app.use(express.errorHandler());
+    app.use(morgan);
+    app.use(require('errorhandler')());
   };
 
   if ('staging' == app.get('env') || 'production' == app.get('env')) {
