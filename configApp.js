@@ -23,6 +23,7 @@ module.exports = function () {
   });
 
 
+  // Last bits of middleware
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(require('serve-static')(path.join(__dirname, '/public')));
 
@@ -33,7 +34,7 @@ module.exports = function () {
   };
 
   if ('staging' == app.get('env') || 'production' == app.get('env')) {
-    app.use(express.logger());
+    app.use(morgan);
     app.use(require('./lib/vagueErrorHandler.js'));
   }
 
